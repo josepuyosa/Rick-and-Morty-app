@@ -6,7 +6,7 @@ interface IFooterItemsProps {
     setPage: React.Dispatch<React.SetStateAction<number>>;
     totalPage: number;
 }
-export const Pagination: FC<IFooterItemsProps> = ({ children, page, setPage, totalPage }) => {
+export const Pagination: FC<IFooterItemsProps> = ({ page, setPage, totalPage }) => {
     return (
         <PaginationContainerStyled>
             {page <= 1 ? null : <ButtonPaginationStyled onClick={() => {

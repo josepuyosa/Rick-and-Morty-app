@@ -1,15 +1,15 @@
-export const NotFoundPage = () => {
+import { FC } from "react";
+import { NotFoundButtonStyled, NotFoundContainerStyled } from "./NotFound.styled";
+
+interface INotFoundProps {
+    onClick: () => void;
+}
+export const NotFound: FC<INotFoundProps> = ({ onClick }) => {
     return (
-        <div
-            style={{
-                justifyContent: 'center',
-                alignContent: 'center',
-                display: 'flex',
-                alignItems: 'center',
-                height: '100vh',
-            }}
-        >
-            <h1>404 Not Found</h1>
-        </div>
+        <NotFoundContainerStyled>
+            <h1>Uh-oh!</h1>
+            <h2>Pareces perdido en tu viaje</h2>
+            <NotFoundButtonStyled onClick={onClick}>Reset</NotFoundButtonStyled>
+        </NotFoundContainerStyled>
     );
 };

@@ -1,7 +1,7 @@
 
 import { Route, Routes } from 'react-router-dom';
 import { Welcome } from './pages/Welcome';
-import { NotFoundPage } from './components/NotFound';
+import { NotFound } from './components/NotFound';
 import { List } from './pages/List/List';
 
 function App() {
@@ -12,7 +12,6 @@ function App() {
       <Routes>
         <Route path="/" element={<Welcome />} />
         <Route path="/list/:gender" element={<List />} />
-        <Route path="*" element={<NotFoundPage />} />
       </Routes>
 
     </div>

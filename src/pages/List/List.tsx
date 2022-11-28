@@ -4,6 +4,7 @@ import { Character } from "../../components/Character";
 import { Footer } from "../../components/Footer";
 import { Modal } from "../../components/Modal";
 import { Navigation } from "../../components/Navigation";
+import { NotFound } from "../../components/NotFound";
 import { Pagination } from "../../components/Pagination";
 import { CommonContext } from "../../context/common.context";
 import { HeaderContainerStyled, LogoRyMStyled, NavigationContainer, SearchBar, GridItem, GridRow } from "./List.styled";
@@ -37,6 +38,7 @@ export const List: FC = () => {
                 params4.append("gender", params.gender || "")
             }
             if (searchText) {
+                setPage(1)
                 params4.append("name", searchText || "")
             }
             const response = await fetch(`https://rickandmortyapi.com/api/character/?${params4.toString()}`);
@@ -51,10 +53,13 @@ export const List: FC = () => {
         setSearchText(event.target.value);
     }
 
-    function openCharacterModal(character: any) {
+    function openCharacterModal(character: ICharacter) {
 
         setCharacter(character);
         setModalOpen(true);
+    }
+    function resetSearchBar() {
+        setSearchText("")
     }
     return (
         <>
@@ -70,18 +75,25 @@ export const List: FC = () => {
             <NavigationContainer>
                 <Navigation />
             </NavigationContainer>
-            <Pagination page={page} setPage={setPage} totalPage={totalPage} />
             {modalOpen ? <Modal modalOpen={modalOpen} setModalOpen={setModalOpen} /> : null}
 
-            <GridRow >
-                {content?.map((character) => {
-                    return (
-                        <GridItem onClick={() => openCharacterModal(character)} key={character.id}>
-                            <Character character={character} />
-                        </GridItem>
-                    );
-                })}
-            </GridRow>
+            {content
+                ?
+                <>
+                    <Pagination page={page} setPage={setPage} totalPage={totalPage} />
+                    <GridRow >
+                        {content?.map((character) => {
+                            return (
+                                <GridItem onClick={() => openCharacterModal(character)} key={character.id}>
+                                    <Character character={character} />
+                                </GridItem>
+                            );
+                        })}
+                    </GridRow>
+                </>
+                :
+                <NotFound onClick={resetSearchBar} />
+            }
             <Footer />
         </>
 
