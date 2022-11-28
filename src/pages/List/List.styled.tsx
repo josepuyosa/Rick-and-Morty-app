@@ -20,7 +20,7 @@ export const GridItem = styled.div`
 `
 
 export const HeaderContainerStyled = styled.div`
-    width: 100%; 
+    width: 100vw; 
     height: 644px;
     margin: 0 auto;
     padding: 0;
@@ -29,7 +29,8 @@ export const HeaderContainerStyled = styled.div`
     img{
         max-width: 100%;
     }
-    @media screen and (max-width: 560px) {
+
+    @media only screen and (max-width: 480px) {
         
         height: 420px;
     }
@@ -40,7 +41,19 @@ export const LogoRyMStyled = styled.img`
     height: 221px;
     left: 725px;
     top: 133px;
-    @media screen and (max-width: 560px) {
+
+    @media only screen and (max-width: 1024px) {
+        left: 243px;
+        top: 96px;
+    }
+
+    @media only screen and (max-width: 768px) {
+        width: 522px;
+        height: 240px;
+        left: 134px;
+    }
+    
+    @media only screen and (max-width: 480px) {
         width: 330px;
         left: 94px;
         top: 110px;
@@ -63,7 +76,18 @@ export const SearchBar = styled.input`
     order: 0;
     align-self: stretch;
     flex-grow: 1;
-    @media screen and (max-width: 560px) {
+
+    @media only screen and (max-width: 1024px) {
+        left: 188px;
+    }
+
+    @media only screen and (max-width: 768px) {
+        width: 480px;
+        left: 118px;
+        top: 408px;
+    }
+    
+    @media only screen and (max-width: 480px) {
         width: 280px;
         left: 30px;
         top: 430px;
@@ -82,9 +106,9 @@ export const NavigationContainer = styled.div`
 
 `;
 export const ContainerStyled = styled.div`
-    max-width: 1400px;
+    width: 100vw;
+    height: 100vh;
+
     margin: auto;
-    @media screen and (max-width: 480px) {
-        overflow-x: hidden;
-    }
+
 `;

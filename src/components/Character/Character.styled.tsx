@@ -37,6 +37,14 @@ export const CardItemStyled = styled.div`
         font-size: 16px;
         line-height: 150%;
         color: #000000;
+        
+        @media only screen and (max-width: 1024px) {
+        width: 236px;
+        }
+        
+        @media only screen and (max-width: 768px) {
+            width: 236px;
+        }
     } 
 `
 export const CardInfoStyled = styled.div`
