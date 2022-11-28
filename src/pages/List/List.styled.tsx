@@ -37,18 +37,19 @@ export const HeaderContainerStyled = styled.div`
 `
 export const LogoRyMStyled = styled.img`
     position: absolute;
-    width: 500.73px;
+    width: 30%;
     height: 221px;
-    left: 725px;
+    left: 676px;
     top: 133px;
 
     @media only screen and (max-width: 1024px) {
+        width: 60%;
         left: 243px;
         top: 96px;
     }
 
     @media only screen and (max-width: 768px) {
-        width: 522px;
+        width: 68%;
         height: 240px;
         left: 134px;
     }
@@ -64,7 +65,7 @@ export const SearchBar = styled.input`
     padding: 0px;
     padding-left: 60px;
     position: absolute;
-    width: 610px;
+    width: 32%;
     height: 60px;
     left: 625px;
     top: 372px;
@@ -78,11 +79,11 @@ export const SearchBar = styled.input`
     flex-grow: 1;
 
     @media only screen and (max-width: 1024px) {
+        width: 60%;
         left: 188px;
     }
 
     @media only screen and (max-width: 768px) {
-        width: 480px;
         left: 118px;
         top: 408px;
     }
